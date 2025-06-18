@@ -3,11 +3,13 @@
 ## Proje Özeti
 
 CryptoGuard, modern web teknolojileri kullanılarak geliştirilmiş kapsamlı bir kriptografi uygulamasıdır. Bu uygulama AES ve RSA şifreleme algoritmalarını destekler ve SHA-256 hash fonksiyonunu içerir.
+![image](https://github.com/user-attachments/assets/80d7613c-bc40-41f0-ae6e-0b804463a2a7)
 
 ## Özellikler
 
 ### 🔐 AES Şifreleme
-![image](https://github.com/user-attachments/assets/ebe1d3ad-3144-4875-8646-ebe9de148753)
+![image](https://github.com/user-attachments/assets/40234d67-2d89-4ab7-afee-ad344cad2c5a)
+
 
 - **Simetrik şifreleme algoritması**
 - Desteklenen modlar: CBC, GCM, CTR
@@ -16,6 +18,9 @@ CryptoGuard, modern web teknolojileri kullanılarak geliştirilmiş kapsamlı bi
 - Otomatik şifre oluşturma özelliği
 
 ### 🔑 RSA Şifreleme
+![image](https://github.com/user-attachments/assets/9c11e4ed-9cfa-4a8a-a67b-b5dfa6465238)
+
+
 - **Asimetrik şifreleme algoritması**
 - Anahtar boyutları: 1024, 2048, 4096 bit
 - Otomatik anahtar çifti oluşturma
@@ -23,6 +28,10 @@ CryptoGuard, modern web teknolojileri kullanılarak geliştirilmiş kapsamlı bi
 - RSA-OAEP padding ile güvenlik
 
 ### 🔍 SHA-256 Hash
+![image](https://github.com/user-attachments/assets/0be70255-95f1-4d55-bb05-51aebb69b5b0)
+
+![image](https://github.com/user-attachments/assets/e568b8c6-f071-41fb-976e-321114e487a8)
+
 - **Kriptografik hash fonksiyonu**
 - Metin ve dosya girişi desteği
 - 256 bit sabit uzunlukta çıktı
