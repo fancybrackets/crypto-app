@@ -7,6 +7,8 @@ CryptoGuard, modern web teknolojileri kullanılarak geliştirilmiş kapsamlı bi
 ## Özellikler
 
 ### 🔐 AES Şifreleme
+![image](https://github.com/user-attachments/assets/ebe1d3ad-3144-4875-8646-ebe9de148753)
+
 - **Simetrik şifreleme algoritması**
 - Desteklenen modlar: CBC, GCM, CTR
 - Anahtar boyutları: 128, 192, 256 bit
