@@ -13,7 +13,11 @@ CryptoGuard, modern web teknolojileri kullanılarak geliştirilmiş kapsamlı bi
 
 - **Simetrik şifreleme algoritması**
 - Desteklenen modlar: CBC, GCM, CTR
+- ![image](https://github.com/user-attachments/assets/950278ac-61f8-41ee-8bad-2c38d1649f66)
+
 - Anahtar boyutları: 128, 192, 256 bit
+- ![image](https://github.com/user-attachments/assets/c4bcacd9-8126-453b-b4c7-37ef35ee7c0f)
+
 - PBKDF2 ile güvenli anahtar türetme
 - Otomatik şifre oluşturma özelliği
 
@@ -23,6 +27,8 @@ CryptoGuard, modern web teknolojileri kullanılarak geliştirilmiş kapsamlı bi
 
 - **Asimetrik şifreleme algoritması**
 - Anahtar boyutları: 1024, 2048, 4096 bit
+- ![image](https://github.com/user-attachments/assets/1244907b-b9c6-4086-963a-ea199f5bda1f)
+
 - Otomatik anahtar çifti oluşturma
 - PEM formatında anahtar dışa aktarma
 - RSA-OAEP padding ile güvenlik
@@ -40,6 +46,11 @@ CryptoGuard, modern web teknolojileri kullanılarak geliştirilmiş kapsamlı bi
 ### 🎨 Modern Tasarım
 - Karanlık tema ile profesyonel görünüm
 - Responsive tasarım (mobil uyumlu)
+- ![image](https://github.com/user-attachments/assets/2ef27546-c282-47f0-9979-e341b3a5958a)
+
+- ![image](https://github.com/user-attachments/assets/1020d6b2-f403-486a-9942-de010a4fda4e)
+
+
 - Animasyonlar ve geçiş efektleri
 - Kullanıcı dostu arayüz
 
