@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoGuard - Güvenli Şifreleme Sistemi</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="main-title">CryptoGuard</h1>
+            <p class="subtitle">Güvenli Şifreleme ve Hash Sistemi</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-tab="aes">AES</button>
+            <button class="nav-tab" data-tab="rsa">RSA</button>
+            <button class="nav-tab" data-tab="sha256">SHA256</button>
+            <button class="nav-tab" data-tab="info">Bilgi</button>
+        </nav>
+
+        <!-- AES Section -->
+        <section id="aes-section" class="crypto-section active">
+            <div class="section-header">
+                <div class="crypto-icon">🔐</div>
+                <h2>AES Şifreleme</h2>
+                <p>Simetrik şifreleme algoritması olan AES, yüksek güvenlik ve hızlı performans sunan modern bir şifreleme standardıdır.</p>
+            </div>
+
+            <div class="crypto-controls">
+                <div class="control-group">
+                    <label for="aes-mode">Şifreleme Modu:</label>
+                    <select id="aes-mode" class="select-input">
+                        <option value="CBC">CBC</option>
+                        <option value="GCM">GCM</option>
+                        <option value="CTR">CTR</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="aes-key-size">Anahtar Boyutu:</label>
+                    <select id="aes-key-size" class="select-input">
+                        <option value="128">128 bit</option>
+                        <option value="192">192 bit</option>
+                        <option value="256">256 bit</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="aes-plaintext">Şifrelenecek Metin:</label>
+                    <textarea id="aes-plaintext" class="text-input" placeholder="Şifrelemek istediğiniz metni buraya yazın..."></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="aes-password">Şifre:</label>
+                    <input type="password" id="aes-password" class="text-input" placeholder="Güçlü bir şifre girin...">
+                    <button type="button" class="generate-btn" onclick="generatePassword('aes-password')">🎲 Oluştur</button>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn encrypt-btn" onclick="encryptAES()">🔒 Şifrele</button>
+                <button class="action-btn decrypt-btn" onclick="decryptAES()">🔓 Şifre Çöz</button>
+                <button class="action-btn clear-btn" onclick="clearAES()">🗑️ Temizle</button>
+            </div>
+
+            <div class="output-section">
+                <div class="output-group">
+                    <label for="aes-result">Sonuç:</label>
+                    <textarea id="aes-result" class="text-output" readonly></textarea>
+                    <button class="copy-btn" onclick="copyToClipboard('aes-result')">📋 Kopyala</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSA Section -->
+        <section id="rsa-section" class="crypto-section">
+            <div class="section-header">
+                <div class="crypto-icon">🔑</div>
+                <h2>RSA Şifreleme</h2>
+                <p>Asimetrik şifreleme algoritması olan RSA, güvenli veri iletimi için açık ve gizli anahtar çifti kullanır.</p>
+            </div>
+
+            <div class="key-generation">
+                <div class="control-group">
+                    <label for="rsa-key-size">Anahtar Boyutu:</label>
+                    <select id="rsa-key-size" class="select-input">
+                        <option value="1024">1024 bit</option>
+                        <option value="2048">2048 bit</option>
+                        <option value="4096">4096 bit</option>
+                    </select>
+                </div>
+                <button class="action-btn generate-btn" onclick="generateRSAKeys()">🔧 Anahtar Çifti Oluştur</button>
+            </div>
+
+            <div class="key-display">
+                <div class="key-group">
+                    <label for="rsa-public-key">Public Key:</label>
+                    <textarea id="rsa-public-key" class="key-textarea" readonly></textarea>
+                    <button class="copy-btn" onclick="copyToClipboard('rsa-public-key')">📋 Kopyala</button>
+                </div>
+
+                <div class="key-group">
+                    <label for="rsa-private-key">Private Key:</label>
+                    <textarea id="rsa-private-key" class="key-textarea" readonly></textarea>
+                    <button class="copy-btn" onclick="copyToClipboard('rsa-private-key')">📋 Kopyala</button>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="rsa-plaintext">Şifrelenecek Metin:</label>
+                    <textarea id="rsa-plaintext" class="text-input" placeholder="Şifrelemek istediğiniz metni buraya yazın..."></textarea>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn encrypt-btn" onclick="encryptRSA()">🔒 Şifrele</button>
+                <button class="action-btn decrypt-btn" onclick="decryptRSA()">🔓 Şifre Çöz</button>
+                <button class="action-btn clear-btn" onclick="clearRSA()">🗑️ Temizle</button>
+            </div>
+
+            <div class="output-section">
+                <div class="output-group">
+                    <label for="rsa-result">Sonuç:</label>
+                    <textarea id="rsa-result" class="text-output" readonly></textarea>
+                    <button class="copy-btn" onclick="copyToClipboard('rsa-result')">📋 Kopyala</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SHA256 Section -->
+        <section id="sha256-section" class="crypto-section">
+            <div class="section-header">
+                <div class="crypto-icon">🔍</div>
+                <h2>SHA256 Hash</h2>
+                <p>Veri bütünlüğünü sağlamak için kullanılan, tek yönlü ve sabit uzunluklu hash fonksiyonudur.</p>
+            </div>
+
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="sha256-input">Metin Girişi:</label>
+                    <textarea id="sha256-input" class="text-input" placeholder="Hash'ini almak istediğiniz metni buraya yazın..."></textarea>
+                </div>
+
+                <div class="file-input-group">
+                    <label for="sha256-file">Dosya Girişi:</label>
+                    <input type="file" id="sha256-file" class="file-input" accept="*/*">
+                    <div class="file-info" id="file-info"></div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn hash-btn" onclick="calculateSHA256()">🔍 Hash Hesapla</button>
+                <button class="action-btn clear-btn" onclick="clearSHA256()">🗑️ Temizle</button>
+            </div>
+
+            <div class="output-section">
+                <div class="output-group">
+                    <label for="sha256-result">SHA256 Hash:</label>
+                    <textarea id="sha256-result" class="text-output" readonly></textarea>
+                    <button class="copy-btn" onclick="copyToClipboard('sha256-result')">📋 Kopyala</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section id="info-section" class="crypto-section">
+            <div class="section-header">
+                <div class="crypto-icon">ℹ️</div>
+                <h2>Kriptografi Bilgileri</h2>
+            </div>
+
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>🔐 AES (Advanced Encryption Standard)</h3>
+                    <p>Simetrik şifreleme algoritması olup, aynı anahtar hem şifreleme hem de şifre çözme için kullanılır. Yüksek performans ve güvenlik sunar.</p>
+                    <ul>
+                        <li><strong>Anahtar Boyutları:</strong> 128, 192, 256 bit</li>
+                        <li><strong>Blok Boyutu:</strong> 128 bit</li>
+                        <li><strong>Modlar:</strong> CBC, GCM, CTR, ECB</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>🔑 RSA (Rivest-Shamir-Adleman)</h3>
+                    <p>Asimetrik şifreleme algoritması olup, public ve private anahtar çifti kullanır. Güvenli anahtar değişimi için idealdir.</p>
+                    <ul>
+                        <li><strong>Anahtar Boyutları:</strong> 1024, 2048, 4096 bit</li>
+                        <li><strong>Güvenlik:</strong> Büyük sayıların faktörizasyonu zorluğuna dayanır</li>
+                        <li><strong>Kullanım:</strong> Dijital imza, anahtar değişimi</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>🔍 SHA256 (Secure Hash Algorithm 256)</h3>
+                    <p>Kriptografik hash fonksiyonu olup, herhangi bir boyuttaki veriyi 256 bitlik sabit uzunlukta hash değerine dönüştürür.</p>
+                    <ul>
+                        <li><strong>Hash Boyutu:</strong> 256 bit (32 byte)</li>
+                        <li><strong>Özellik:</strong> Tek yönlü, çarpışma dirençli</li>
+                        <li><strong>Kullanım:</strong> Veri bütünlüğü, dijital imza</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 CryptoGuard - Güvenli Şifreleme Sistemi</p>
+            <p>Eğitim amaçlı geliştirilmiştir. Gerçek uygulamalarda profesyonel kriptografi kütüphaneleri kullanın.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
