@@ -2,6 +2,9 @@
 
 ## Proje Özeti
 
+## Live Demo:
+https://fancybrackets.github.io/crypto-app/
+
 CryptoGuard, modern web teknolojileri kullanılarak geliştirilmiş kapsamlı bir kriptografi uygulamasıdır. Bu uygulama AES ve RSA şifreleme algoritmalarını destekler ve SHA-256 hash fonksiyonunu içerir.
 ![image](https://github.com/user-attachments/assets/80d7613c-bc40-41f0-ae6e-0b804463a2a7)
 
